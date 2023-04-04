@@ -36,3 +36,9 @@ function App() {
 }
 
 export default App;
+
+//avere lo state e dispatch all'interno del componente mi va a creare 2 reducer diversi, uno in counter ed uno in app, e quindi
+//esssendo parte di scope diversi saranno anche essi diversi, e facendo il console.log dello state.value in App mi darà 0
+// e non il numero salvato nel componente in Counter
+// quindi bisogna sempre farlo in App in maniera che i lo stato del componente reducer sia lo stesso in tutti i componenti
+//e questo si fa aggiungendo , sia lo STATE che il DISPATCH dentro il VALUE del provider!!1!1

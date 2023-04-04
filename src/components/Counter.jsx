@@ -28,6 +28,7 @@ const Counter = () => {
 
   //   console.log(counter);
 
+  const onHandleClick = (e) => dispatch({ type: e.target.className });
   return (
     <div className="Counter">
       {/* {console.log(useContext)} */}
@@ -49,7 +50,8 @@ const Counter = () => {
       </button> */}
       <button
         className="increment"
-        onClick={() => dispatch({ type: "increment" })}
+        // onClick={() => dispatch({ type: "increment" })}
+        onClick={onHandleClick}
       >
         increment
       </button>
@@ -57,8 +59,12 @@ const Counter = () => {
 
       {/* <h1>{counter.value}</h1> */}
       {/* andando a sotituire a 0 nell'h1 la proprietà value di counter e quidi value.counter.. sarà poi visualizzabile dappertutto */}
-      <button className="decrement">decrement</button>
-      <button className="reset">reset</button>
+      <button className="decrement" onClick={onHandleClick}>
+        decrement
+      </button>
+      <button className="reset" onClick={onHandleClick}>
+        reset
+      </button>
       <button onClick={() => setValueApp(value)}>
         no asincronicità (send to parent App)
       </button>
