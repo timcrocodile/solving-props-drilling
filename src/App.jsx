@@ -2,22 +2,23 @@ import "./App.css";
 import { useState, createContext, useContext, useReducer } from "react";
 import Counter from "./components/Counter";
 import { globalReducer } from "./store/reducers";
+import { CounterCtx, initGlobalState } from "./store/index";
 
-export const CounterCtx = createContext({});
+// export const CounterCtx = createContext({});
 // export const initiCounterState = {
 //   value: 5,
 
 // };
 
-export const initGlobalState = {
-  value: 66,
-  pippo: 3,
-};
+// export const initGlobalState = {
+//   value: 66,
+//   pippo: 3,
+// };
 
 function App() {
   // const [state,dispatch] = useReducer(globalReducer, initiCounterState)
   // *****si potrebbe anche togliere dispatch*****
-  const [state] = useReducer(globalReducer, initGlobalState);
+  const [state, dispatch] = useReducer(globalReducer, initGlobalState);
   const [valueApp, setValueApp] = useState(0);
   // console.log(GlobalCtx);
   // il console.log si nota il tipo di oggetto che ci viene restituito dove spiccano $$typeof il Consumer e Provider che sono 2 componenti!

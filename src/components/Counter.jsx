@@ -1,5 +1,5 @@
 import { useState, useContext, useReducer } from "react";
-import { CounterCtx } from "../App";
+import { CounterCtx } from "../store/index";
 import { globalReducer } from "../store/reducers";
 
 const Counter = () => {
@@ -24,16 +24,15 @@ const Counter = () => {
   // *****essendo globale adesso****
 
   const globalState = useContext(CounterCtx);
-  const [state, dispatch] = useReducer(globalReducer, globalState);
+  const [state, dispatch] = useReducer(globalReducer, globalState.state);
 
-  console.log(state);
+  //   console.log(counter);
 
   return (
     <div className="Counter">
       {/* {console.log(useContext)} */}
       {/* {console.log(counter)}
        ***************************************** */}
-
       {/* <button className="increment" onClick={onHandleClick}>
         increment
       </button>
@@ -54,14 +53,12 @@ const Counter = () => {
       >
         increment
       </button>
+      <p>{state.value}</p>
+
       {/* <h1>{counter.value}</h1> */}
-
-      <h1>{state.pippo}</h1>
-
       {/* andando a sotituire a 0 nell'h1 la proprietà value di counter e quidi value.counter.. sarà poi visualizzabile dappertutto */}
       <button className="decrement">decrement</button>
       <button className="reset">reset</button>
-
       <button onClick={() => setValueApp(value)}>
         no asincronicità (send to parent App)
       </button>
